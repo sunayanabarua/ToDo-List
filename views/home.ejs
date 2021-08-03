@@ -1,0 +1,22 @@
+<%- include('header'); -%>
+
+<div class="box" id="heading">
+  <h1> <%= ListTitle %></h1>
+</div>
+
+<div class="box">
+  <% newList.forEach(function(list){ %>
+  <form action="/:<%=list.name%>" method="post">
+    <div class="item" >
+      <input type="radio" name="oldList" id="listElement" value="<%=list.name%>" onclick='window.location.assign("/<%= list.name %>")'>
+      <p><%=list.name%></p>
+    </div>
+  </form>
+  <% }) %>
+
+  <form class="item" action="" method="post">
+    <input type="text" name="newList" placeholder="New List">
+    <button type="submit">+</button>
+  </form>
+</div>
+<%- include('footer'); -%>
